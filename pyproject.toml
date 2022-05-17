@@ -10,7 +10,25 @@ SQLAlchemy = "^1.4.36"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1"
+pytest-cov = "^3.0.0"
+mypy = "^0.950"
+isort = "^5.10.1"
+pre-commit = "^2.19.0"
+flake8 = "^4.0.1"
+black = {version = "^22.3.0", allow-prereleases = true}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 79
+
+[tool.black]
+line-length = 79
+target-version = ['py38']
+include = '\.pyi?$'
