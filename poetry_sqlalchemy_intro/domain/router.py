@@ -25,6 +25,6 @@ class Router(Base):
     def active_port_count(self) -> int:
         return self.chassis.active_port_count
 
-    @active_port_count.expression
+    @active_port_count.expression  # type:ignore[no-redef]
     def active_port_count(cls) -> int:
         return Chassis.active_port_count

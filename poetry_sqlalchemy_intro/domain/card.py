@@ -27,7 +27,7 @@ class Card(Base):
     def active_port_count(self) -> int:
         return sum(1 for port in self.ports if port.is_up)
 
-    @active_port_count.expression
+    @active_port_count.expression  # type:ignore[no-redef]
     def active_port_count(cls) -> int:
         return (
             select(func.count(Port))

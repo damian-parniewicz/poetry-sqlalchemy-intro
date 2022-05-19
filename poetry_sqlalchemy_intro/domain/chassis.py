@@ -27,7 +27,7 @@ class Chassis(Base):
     def active_port_count(self) -> int:
         return sum(card.active_port_count for card in self.cards)
 
-    @active_port_count.expression
+    @active_port_count.expression  # type:ignore[no-redef]
     def active_port_count(cls) -> int:
         return (
             select(func.sum(Card.active_port_count))
