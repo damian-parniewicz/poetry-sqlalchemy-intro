@@ -1,9 +1,12 @@
 import enum
+from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, Column, Enum, ForeignKey, Integer
+if TYPE_CHECKING:
+    from .card import Card  # noqa: F401
+
+from sqlalchemy import Column, Enum, ForeignKey, Integer
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql.expression import ColumnElement
 
 from ..common.base import Base
 
@@ -39,5 +42,5 @@ class Port(Base):
         )
 
     @hybrid_property
-    def is_up(self) -> ColumnElement[Boolean]:
+    def is_up(self) -> bool:
         return self.state == State.UP

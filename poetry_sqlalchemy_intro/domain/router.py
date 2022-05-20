@@ -12,9 +12,7 @@ class Router(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     model = Column(String)
-    chassis: Chassis = relationship(
-        "Chassis", uselist=False, back_populates="router"
-    )
+    chassis = relationship("Chassis", uselist=False, back_populates="router")
 
     def __repr__(self) -> str:
         return (

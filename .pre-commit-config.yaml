@@ -18,7 +18,7 @@ repos:
     rev: v0.950
     hooks:
         - id: mypy
-          additional_dependencies: [pydantic, sqlalchemy]  # add if use pydantic
+          additional_dependencies: [sqlalchemy]
 -   repo: https://github.com/PyCQA/isort
     rev: 5.10.1
     hooks:
