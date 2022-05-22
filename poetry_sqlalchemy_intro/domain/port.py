@@ -38,7 +38,7 @@ class Port(Base):
     def __repr__(self) -> str:
         return (
             f"Port(id={self.id!r}, speed={self.speed!r}, "
-            f"card_id={self.card_id!r})"
+            f"card_id={self.card_id!r}) "
         )
 
     @hybrid_property
